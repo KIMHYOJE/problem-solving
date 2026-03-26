@@ -1,10 +1,9 @@
-#include <iostream>
-using namespace std;
-
-int main() {
-    int A, B;
-    cin >> A >> B;
-    cout << A+B << endl;
-
-    return 0;
+#include<iostream>
+int main(){
+    int val1;
+    int val2;
+    std::cin>>val1;
+    std::cin>>val2;
+    int result=val1+val2;
+    std::cout<<result<<std::endl;
 }
