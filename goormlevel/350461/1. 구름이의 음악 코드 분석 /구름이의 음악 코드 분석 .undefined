@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+import sys
+
+def solve():
+    # 입력 받기
+    M = int(sys.stdin.readline())
+    
+    hansu_count = 0
+    
+    for i in range(1, M + 1):
+        # 1부터 99까지는 모두 한수
+        if i < 100:
+            hansu_count += 1
+        # 3자리 수 판별 (100 ~ 999)
+        elif i < 1000:
+            digits = list(map(int, str(i))) # 숫자를 각 자릿수 리스트로 변환
+            if (digits[0] - digits[1]) == (digits[1] - digits[2]):
+                hansu_count += 1
+        # 1000은 한수가 아니므로 제외 (i == 1000 일 때는 아무것도 하지 않음)
+                
+    # 결과 출력
+    print(hansu_count)
+
+if __name__ == '__main__':
+    solve()
