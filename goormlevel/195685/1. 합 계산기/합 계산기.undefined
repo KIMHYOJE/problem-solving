@@ -1,0 +1,29 @@
+
+# 1. 계산할 식의 개수 T를 입력받습니다.
+T = int(input())
+
+# 최종 결과들을 모두 더해줄 주머니 변수 생성
+total_sum = 0
+
+# 2. T개의 식을 하나씩 처리하기 위해 반복문을 실행합니다.
+for i in range(T):
+    # 공백을 기준으로 첫 번째 숫자, 연산 기호, 두 번째 숫자를 분리해 가져옵니다.
+    num1_str, op, num2_str = input().split()
+    
+    # 가져온 숫자들은 계산이 가능하도록 정수(int)형으로 바꿔줍니다.
+    num1 = int(num1_str)
+    num2 = int(num2_str)
+    
+    # 3. 연산 기호(op)에 따라 알맞은 계산을 수행하고 최종 합계에 더합니다.
+    if op == '+':
+        total_sum += (num1 + num2)
+    elif op == '-':
+        total_sum += (num1 - num2)
+    elif op == '*':
+        total_sum += (num1 * num2)
+    elif op == '/':
+        # 나눗셈은 나머지를 버려야 하므로 // (몫 연산자)를 사용합니다.
+        total_sum += (num1 // num2)
+
+# 4. 모든 계산식의 결과를 합산한 최종 값을 출력합니다.
+print(total_sum)
