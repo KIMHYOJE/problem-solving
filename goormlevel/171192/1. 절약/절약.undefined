@@ -1,0 +1,32 @@
+
+# 1. 거래 건수 N을 입력받습니다.
+N = int(input())
+
+# 구름이의 초기 잔액은 0원입니다.
+money = 0
+
+# 중간에 실패했는지 여부를 기록할 깃발 변수 (기본값은 실패하지 않음)
+is_failed = False
+
+# 2. N번 동안 가계부 기록을 하나씩 읽어옵니다.
+for i in range(N):
+    trade_type, amount_str = input().split()
+    amount = int(amount_str) # 금액은 숫자로 변환
+    
+    # 수입(in)인 경우 돈을 더해줍니다.
+    if trade_type == 'in':
+        money += amount
+    # 지출(out)인 경우 돈을 빼줍니다.
+    elif trade_type == 'out':
+        money -= amount
+        
+    # 3. 돈을 빼거나 더한 직후, 잔액이 0원 미만으로 떨어졌는지 감시합니다.
+    if money < 0:
+        is_failed = True
+
+# 4. 모든 거래를 마친 후 결과를 출력합니다.
+# 중간에 한 번이라도 잔액이 음수가 되었다면 fail을 출력합니다.
+if is_failed:
+    print("fail")
+else:
+    print("success")
