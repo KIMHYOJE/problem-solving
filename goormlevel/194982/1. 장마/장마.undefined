@@ -1,0 +1,27 @@
+
+# 1. 집의 개수 N과 장마 기간 M 입력
+N, M = map(int, input().split())
+
+# 원래 땅 높이 입력 (1번 집과 인덱스를 맞추기 위해 맨 앞에 [0]을 더해줍니다)
+heights = [0] + list(map(int, input().split()))
+
+# 각 집의 물의 높이를 기록할 리스트 (0으로 초기화)
+water = [0] * (N + 1)
+
+# 최근 3일 동안 비가 내린 집의 번호를 기억할 집합(Set)
+rained_recently = set()
+
+# 2. M일 동안의 장마 시뮬레이션 시작
+for day in range(1, M + 1):
+    s, e = map(int, input().split())
+    
+    # s번 집부터 e번 집까지 비가 내립니다.
+    for i in range(s, e + 1):
+        water[i] += 1
+        rained_recently.add(i) # 비가 내린 집 번호를 집합에 추가
+        
+    # 3. 3의 배수가 되는 날마다 배수 시스템 작동
+    if day % 3 == 0:
+        for house in rained_recently:
+            water[house] -= 1 # 물의 높이 1 감소
+        rained_recently.clear() # 배수가 끝났으므로 최근 비 기록 리셋
