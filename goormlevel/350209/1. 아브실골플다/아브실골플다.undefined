@@ -1,0 +1,15 @@
+
+# 1. 각 단계별 대회 전/후 인원 입력 (총 6개 티어)
+I1, I2 = map(int, input().split())  # 아이언
+B1, B2 = map(int, input().split())  # 브론즈
+S1, S2 = map(int, input().split())  # 실버
+G1, G2 = map(int, input().split())  # 골드
+P1, P2 = map(int, input().split())  # 플래티넘
+D1, D2 = map(int, input().split())  # 다이아몬드
+
+# 2. 각 티어별로 줄어든 인원(승급자 수)을 순서대로 출력
+print(I1 - I2)  # 아이언 -> 브론즈
+print(B1 - B2)  # 브론즈 -> 실버
+print(S1 - S2)  # 실버 -> 골드
+print(G1 - G2)  # 골드 -> 플래티넘
+print(P1 - P2)  # 플래티넘 -> 다이아몬드
