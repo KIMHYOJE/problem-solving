@@ -1,0 +1,40 @@
+
+# 1. 교환 횟수 N을 입력받습니다.
+N = int(input())
+
+# 초기 공의 위치 설정 (각각 1번, 2번, 3번에서 시작했다고 가정)
+ball1, ball2, ball3 = 1, 2, 3
+
+# 각 경우의 친구 점수 초기화
+score1, score2, score3 = 0, 0, 0
+
+# 2. N번의 교환 및 예측 정보를 처리합니다.
+for _ in range(N):
+    A, B, G = map(int, input().split())
+    
+    # [시나리오 1] 공이 처음에 1번에서 시작했을 때
+    if ball1 == A:
+        ball1 = B
+    elif ball1 == B:
+        ball1 = A
+    if ball1 == G:  # 친구의 예측(G)과 공의 위치가 같다면 점수 획득
+        score1 += 1
+        
+    # [시나리오 2] 공이 처음에 2번에서 시작했을 때
+    if ball2 == A:
+        ball2 = B
+    elif ball2 == B:
+        ball2 = A
+    if ball2 == G:
+        score2 += 1
+        
+    # [시나리오 3] 공이 처음에 3번에서 시작했을 때
+    if ball3 == A:
+        ball3 = B
+    elif ball3 == B:
+        ball3 = A
+    if ball3 == G:
+        score3 += 1
+
+# 3. 세 가지 시나리오 중 가장 높은 점수를 출력합니다.
+print(max(score1, score2, score3))
