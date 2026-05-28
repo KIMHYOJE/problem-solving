@@ -1,0 +1,11 @@
+
+# 1. 각 단계별 대회 전/후 인원 입력
+B1, B2 = map(int, input().split())  # 브론즈
+S1, S2 = map(int, input().split())  # 실버
+G1, G2 = map(int, input().split())  # 골드
+P1, P2 = map(int, input().split())  # 플래티넘 (입력은 받되 출력에는 사용하지 않음)
+
+# 2. 각 티어별 줄어든 인원(승급자)을 독립적으로 계산하여 출력
+print(B1 - B2)  # 브론즈 -> 실버
+print(S1 - S2)  # 실버 -> 골드
+print(G1 - G2)  # 골드 -> 플래티넘
